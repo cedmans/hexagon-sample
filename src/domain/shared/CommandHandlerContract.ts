@@ -1,0 +1,3 @@
+interface CommandHandlerContract {
+    handle() : void;
+}
