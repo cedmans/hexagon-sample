@@ -5,7 +5,7 @@ export $(egrep -v '^#' .env | xargs)
 
 case ${NODE_ENV} in
   production)
-    node dist/index.js
+    node dist/infrastructure/server/index.js
     ;;
   *)
     ts-node src/infrastructure/server/index.ts
