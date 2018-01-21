@@ -1,4 +1,8 @@
-class User {
+import Email from './values/Email';
+import Name from './values/Name';
+import UserID from './values/UserID';
+
+export default class User {
     private _userId : UserID;
     private _email : Email;
     private _name : Name;
