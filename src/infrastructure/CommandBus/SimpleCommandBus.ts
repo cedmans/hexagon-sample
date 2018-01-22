@@ -5,7 +5,7 @@ export default class SimpleCommandBus implements CommandBusContract {
 
     execute(command: CommandContract): void {
         const handlerClass = this._handlers[command.constructor.name];
-        const handler = container.get<handlerClass>(handlerClass);
+        const handler = container.get<CommandHandlerContract>(handlerClass);
         handler.handle(command);
     }
 
