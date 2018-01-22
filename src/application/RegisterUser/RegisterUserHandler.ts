@@ -1,5 +1,4 @@
 import { inject, injectable } from 'inversify';
-import 'reflect-metadata';
 import { TYPES } from '../../infrastructure/ioc/types';
 
 import RegisterUserCommand from './RegisterUserCommand';
