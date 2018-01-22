@@ -1,10 +1,11 @@
-import { inject } from 'inversify';
+import { inject, injectable } from 'inversify';
 import 'reflect-metadata';
 import { TYPES } from '../../infrastructure/ioc/types';
 
 import RegisterUserCommand from './RegisterUserCommand';
 import User from '../../domain/User/User';
 
+@injectable()
 export default class RegisterUserHandler implements CommandHandlerContract {
     private _userRepository: UserRepositoryContract;
 
