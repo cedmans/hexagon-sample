@@ -1,3 +1,3 @@
-class Email {
+export default class Email {
     public email : string;
 }

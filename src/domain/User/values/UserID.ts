@@ -1,3 +1,3 @@
-class UserID {
+export default class UserID {
     public uniqueIdentifier : number;
 }
