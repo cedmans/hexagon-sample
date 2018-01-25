@@ -4,10 +4,15 @@ import UserRepositoryContract from '../../domain/User/repositories/UserRepositor
 
 @injectable()
 export default class UserRepository implements UserRepositoryContract {
-    private _users: Array<User> = [];
+    private static _users: Array<User> = [];
+
+    public getAll(): Array<User> {
+        return {...UserRepository._users};
+    }
 
     public create(user: User): void {
         user.userId = Math.random() * 10000;
-        this._users.push(user);
+        UserRepository._users.push(user);
+        console.dir(UserRepository._users);
     }
 }

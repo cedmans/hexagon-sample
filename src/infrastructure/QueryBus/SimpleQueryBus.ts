@@ -6,7 +6,7 @@ export default class SimpleQueryBus implements QueryBusContract {
     execute(query: QueryContract): any {
         const handlerClass = this._handlers[query.constructor.name];
         const handler = container.get<QueryHandlerContract>(handlerClass);
-        handler.handle(query);
+        return handler.handle(query);
     }
 
     register(command, handler) {
