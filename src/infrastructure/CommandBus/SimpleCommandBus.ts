@@ -1,22 +1,15 @@
-import { inject, injectable } from "inversify";
-import { TYPES } from "../ioc/types";
+import { container } from '../ioc/inversify.config';
 
-@injectable()
 export default class SimpleCommandBus implements CommandBusContract {
     private _handlers = {};
-    private _container: ContainerContract;
-
-    constructor(@inject(TYPES.ContainerContract) container: ContainerContract) {
-        this._container = container;
-    }
 
     execute(command: CommandContract): void {
         const handlerClass = this._handlers[command.constructor.name];
-        const handler = this._container.make(handlerClass) as CommandHandlerContract;
+        const handler = container.get<CommandHandlerContract>(handlerClass);
         handler.handle(command);
     }
 
-    register(command, handler): void {
+    register(command, handler) {
         this._handlers[command.name] = handler;
     }
 }
