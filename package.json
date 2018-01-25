@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "dotenv": "^4.0.0",
+    "inversify": "^4.9.0",
+    "reflect-metadata": "^0.1.12",
     "restify": "^6.3.4",
     "typescript": "^2.6.2"
   }
