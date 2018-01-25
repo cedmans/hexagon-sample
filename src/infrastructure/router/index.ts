@@ -8,8 +8,8 @@ function applyRoutes(server) {
         next();
     });
 
-    server.get('/create/:name/:email', (request, response, next) => {
-        const [name, email] = ['name', 'email'].map(param => request.params[param]);
+    server.post('/users', (request, response) => {
+        const [name, email] = ['name', 'email'].map(param => request.body[param]);
 
         const commandBus = new SimpleCommandBus();
         commandBus.register(RegisterUserCommand, RegisterUserHandler);
