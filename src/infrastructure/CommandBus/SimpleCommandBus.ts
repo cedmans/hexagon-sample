@@ -1,11 +1,11 @@
+import { container } from '../ioc/inversify.config';
+
 export default class SimpleCommandBus implements CommandBusContract {
     private _handlers = {};
 
-    constructor() {}
-
     execute(command: CommandContract): void {
         const handlerClass = this._handlers[command.constructor.name];
-        const handler = new handlerClass();
+        const handler = container.get<handlerClass>(handlerClass);
         handler.handle(command);
     }
 
