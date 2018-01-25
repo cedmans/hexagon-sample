@@ -1,3 +1,4 @@
 interface CommandBusContract {
-    execute(command : CommandContract) : void;
+    register(command, handler): void;
+    execute(command: CommandContract): void;
 }
