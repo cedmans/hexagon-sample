@@ -1,5 +1,6 @@
 import { container } from '../ioc/inversify.config';
 import {injectable} from "inversify";
+import CommandBusContract from './CommandBusContract';
 
 @injectable()
 export default class SimpleCommandBus implements CommandBusContract {
@@ -11,7 +12,7 @@ export default class SimpleCommandBus implements CommandBusContract {
         handler.handle(command);
     }
 
-    register(command, handler) {
+    register(command, handler): void {
         this._handlers[command.name] = handler;
     }
 }

@@ -7,7 +7,7 @@ export default class InMemoryUserRepository implements UserRepositoryContract {
     private static _users: Array<User> = [];
 
     public getAll(): Array<User> {
-        return {...InMemoryUserRepository._users};
+        return [...InMemoryUserRepository._users];
     }
 
     public create(user: User): void {

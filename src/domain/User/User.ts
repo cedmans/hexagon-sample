@@ -17,7 +17,7 @@ export default class User {
         return this._userId.uniqueIdentifier;
     }
     set userId(userId: number) {
-        this._userId.uniqueIdentifier = userId;
+        this._userId.uniqueIdentifier = ~~userId;
     }
 
     get email() : string {
