@@ -13,6 +13,5 @@ export default class InMemoryUserRepository implements UserRepositoryContract {
     public create(user: User): void {
         user.userId = Math.random() * 10000;
         InMemoryUserRepository._users.push(user);
-        console.dir(InMemoryUserRepository._users);
     }
 }
