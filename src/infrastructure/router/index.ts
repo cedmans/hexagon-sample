@@ -12,7 +12,7 @@ function applyRoutes(server) {
         const [name, email] = ['name', 'email'].map(param => request.params[param]);
 
         const commandBus = new SimpleCommandBus();
-        commandBus.register(RegisterUserCommand.name, RegisterUserHandler);
+        commandBus.register(RegisterUserCommand, RegisterUserHandler);
 
         const registerUserCommand = new RegisterUserCommand();
         registerUserCommand.name = name;

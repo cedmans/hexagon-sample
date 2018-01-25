@@ -10,6 +10,6 @@ export default class SimpleCommandBus implements CommandBusContract {
     }
 
     register(command, handler) {
-        this._handlers[command] = handler;
+        this._handlers[command.name] = handler;
     }
 }

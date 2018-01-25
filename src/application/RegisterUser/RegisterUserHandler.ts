@@ -1,3 +1,5 @@
+import RegisterUserCommand from './RegisterUserCommand';
+
 export default class RegisterUserHandler implements CommandHandlerContract {
     private _userRepository: UserRepositoryContract;
 
