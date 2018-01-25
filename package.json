@@ -1,7 +1,6 @@
 {
   "name": "hexagon",
   "version": "0.0.1",
-  "description": "",
   "engines": {
     "node": "~8"
   },
@@ -12,8 +11,11 @@
     "start": "bash ./scripts/serve.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Cedric Rutland Wienold",
+    "email": "cwienold@gmail.com",
+    "url": "https://cedmans.io"
+  },
   "license": "UNLICENSED",
   "devDependencies": {
     "@types/node": "8.5.8",
