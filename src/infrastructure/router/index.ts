@@ -1,7 +1,3 @@
-import SimpleCommandBus from '../CommandBus/SimpleCommandBus';
-import RegisterUserCommand from '../../application/RegisterUser/RegisterUserCommand';
-import RegisterUserHandler from '../../application/RegisterUser/RegisterUserHandler';
-
 import { container } from '../ioc/inversify.config';
 import UserController from "../Controllers/UserController";
 

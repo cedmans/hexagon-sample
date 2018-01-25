@@ -6,6 +6,7 @@ import QueryBusContract from '../QueryBus/QueryBusContract';
 import {TYPES} from "../ioc/types";
 import RegisterUserCommand from "../../application/RegisterUser/RegisterUserCommand";
 import RegisterUserHandler from "../../application/RegisterUser/RegisterUserHandler";
+import UserViewModel from '../presentation/UserViewModel';
 
 @injectable()
 export default class UserController {
@@ -24,7 +25,7 @@ export default class UserController {
         this._queryBus.register(ListUsersQuery, ListUsersHandler);
 
         const users = this._queryBus.execute(new ListUsersQuery());
-        response.json(200, users);
+        response.json(200, users.map(UserViewModel.fromUser));
     }
 
     create(request, response) {
