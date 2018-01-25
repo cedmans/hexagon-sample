@@ -8,11 +8,19 @@ function applyRoutes(server) {
     });
 
     server.post('/users', (request, response) => {
-        container.get<UserController>(UserController).create(request, response);
+        try {
+            container.get<UserController>(UserController).create(request, response);
+        } catch (error) {
+            response.json(500);
+        }
     });
 
     server.get('/users', (request, response) => {
-        container.get<UserController>(UserController).index(request, response);
+        try {
+            container.get<UserController>(UserController).index(request, response);
+        } catch (error) {
+            response.json(500);
+        }
     });
 }
 

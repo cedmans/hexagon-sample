@@ -7,6 +7,7 @@ import {TYPES} from "../ioc/types";
 import RegisterUserCommand from "../../application/commands/RegisterUser/RegisterUserCommand";
 import RegisterUserHandler from "../../application/commands/RegisterUser/RegisterUserHandler";
 import UserViewModel from '../presentation/UserViewModel';
+import DomainError from "../../domain/errors/DomainError";
 
 @injectable()
 export default class UserController {
@@ -24,8 +25,15 @@ export default class UserController {
     index(_, response) {
         this._queryBus.register(ListUsersQuery, ListUsersHandler);
 
-        const users = this._queryBus.execute(new ListUsersQuery());
-        response.json(200, users.map(UserViewModel.fromUser));
+        try {
+            const users = this._queryBus.execute(new ListUsersQuery());
+            response.json(200, users.map(UserViewModel.fromUser));
+        } catch (error) {
+            if (error instanceof DomainError) {
+                return response.json(400, error.message);
+            }
+            throw error;
+        }
     }
 
     create(request, response) {
@@ -33,11 +41,18 @@ export default class UserController {
 
         this._commandBus.register(RegisterUserCommand, RegisterUserHandler);
 
-        const registerUserCommand = new RegisterUserCommand();
-        registerUserCommand.name = name;
-        registerUserCommand.email = email;
+        try {
+            const registerUserCommand = new RegisterUserCommand();
+            registerUserCommand.name = name;
+            registerUserCommand.email = email;
 
-        this._commandBus.execute(registerUserCommand);
-        response.json(201, {name, email});
+            this._commandBus.execute(registerUserCommand);
+            response.json(201, {name, email});
+        } catch (error) {
+            if (error instanceof DomainError) {
+                return response.json(400, error.message);
+            }
+            throw error;
+        }
     }
 }

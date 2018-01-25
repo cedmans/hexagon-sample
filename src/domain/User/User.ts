@@ -1,6 +1,7 @@
 import Email from './values/Email';
 import Name from './values/Name';
 import UserID from './values/UserID';
+import DomainError from "../errors/DomainError";
 
 export default class User {
     private _userId : UserID;
@@ -17,6 +18,9 @@ export default class User {
         return this._userId.uniqueIdentifier;
     }
     set userId(userId: number) {
+        if (userId < 1) {
+            throw new DomainError('User ID must be a natural number');
+        }
         this._userId.uniqueIdentifier = ~~userId;
     }
 
@@ -24,6 +28,9 @@ export default class User {
         return this._email.email;
     }
     set email(email: string) {
+        if (email.match(/.+@.+/) === null) {
+            throw new DomainError('Email format invalid');
+        }
         this._email.email = email;
     }
 
@@ -31,6 +38,9 @@ export default class User {
         return this._name.fullName;
     }
     set name(name: string) {
+        if (name.length < 1) {
+            throw new DomainError('Empty name is invalid');
+        }
         this._name.fullName = name;
     }
 }
