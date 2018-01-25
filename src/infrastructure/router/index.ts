@@ -12,17 +12,7 @@ function applyRoutes(server) {
     });
 
     server.post('/users', (request, response) => {
-        const [name, email] = ['name', 'email'].map(param => request.body[param]);
-
-        const commandBus = new SimpleCommandBus();
-        commandBus.register(RegisterUserCommand, RegisterUserHandler);
-
-        const registerUserCommand = new RegisterUserCommand();
-        registerUserCommand.name = name;
-        registerUserCommand.email = email;
-
-        commandBus.execute(registerUserCommand);
-        response.json(201, {name, email});
+        container.get<UserController>(UserController).create(request, response);
     });
 
     server.get('/users', (request, response) => {

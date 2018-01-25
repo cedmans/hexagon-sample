@@ -1,5 +1,7 @@
 import { container } from '../ioc/inversify.config';
+import {injectable} from "inversify";
 
+@injectable()
 export default class SimpleCommandBus implements CommandBusContract {
     private _handlers = {};
 
