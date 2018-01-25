@@ -1,6 +1,6 @@
 const TYPES = {
     CommandBusContract: Symbol.for('CommandBusContract'),
-    RegisteryUserHandler: Symbol.for('RegisteryUserHandler'),
+    RegisterUserHandler: Symbol.for('RegisterUserHandler'),
     UserRepositoryContract: Symbol.for('UserRepositoryContract')
 };
 

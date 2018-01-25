@@ -9,6 +9,6 @@ import UserRepository from '../persistence/UserRepository';
 const container = new Container({ autoBindInjectable: true });
 container.bind<CommandBusContract>(TYPES.CommandBusContract).to(SimpleCommandBus);
 container.bind<UserRepositoryContract>(TYPES.UserRepositoryContract).to(UserRepository);
-container.bind<RegisterUserHandler>(TYPES.RegisteryUserHandler).to(RegisterUserHandler);
+container.bind<RegisterUserHandler>(TYPES.RegisterUserHandler).to(RegisterUserHandler);
 
 export { container };

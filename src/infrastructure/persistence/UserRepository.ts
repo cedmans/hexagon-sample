@@ -1,4 +1,6 @@
 import { injectable } from 'inversify';
+import User from "../../domain/User/User";
+import UserRepositoryContract from '../../domain/User/repositories/UserRepositoryContract';
 
 @injectable()
 export default class UserRepository implements UserRepositoryContract {
