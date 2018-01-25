@@ -18,10 +18,10 @@
   },
   "license": "UNLICENSED",
   "devDependencies": {
-    "@types/node": "8.5.8",
     "ts-node": "^4.1.0"
   },
   "dependencies": {
+    "@types/node": "8.5.8",
     "dotenv": "^4.0.0",
     "inversify": "^4.9.0",
     "reflect-metadata": "^0.1.12",
