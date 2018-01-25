@@ -1,33 +1,13 @@
 import * as restify from 'restify';
+import applyRoutes from '../router';
+import applyPlugins from './plugins';
 
 require('dotenv').config();
 
-const prePlugins = [
-    restify.plugins.pre.context(),
-    restify.plugins.pre.sanitizePath(),
-    restify.plugins.pre.userAgentConnection()
-];
-
-const plugins = [
-    restify.plugins.acceptParser([
-        'application/json'
-    ]),
-    restify.plugins.authorizationParser(),
-    restify.plugins.queryParser(),
-    restify.plugins.bodyParser(),
-    restify.plugins.requestLogger(),
-    restify.plugins.gzipResponse(),
-];
-
 const server = restify.createServer();
 
-prePlugins.map(plugin => server.pre(plugin));
-plugins.map(plugin => server.use(plugin));
-
-server.get('/', (request, response, next) => {
-    response.send('hello, world!');
-    next();
-});
+applyPlugins(server);
+applyRoutes(server);
 
 server.listen(
     process.env.PORT,
