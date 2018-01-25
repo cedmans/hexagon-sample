@@ -19,7 +19,7 @@ function applyRoutes(server) {
         registerUserCommand.email = email;
 
         commandBus.execute(registerUserCommand);
-        response.send({name, email});
+        response.json(201, {name, email});
     });
 }
 
