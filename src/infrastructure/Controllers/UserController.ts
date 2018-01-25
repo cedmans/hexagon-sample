@@ -1,11 +1,11 @@
 import {inject, injectable} from "inversify";
-import ListUsersQuery from "../../application/ListUsers/ListUsersQuery";
-import ListUsersHandler from "../../application/ListUsers/ListUsersHandler";
+import ListUsersQuery from "../../application/queries/ListUsers/ListUsersQuery";
+import ListUsersHandler from "../../application/queries/ListUsers/ListUsersHandler";
 import CommandBusContract from '../CommandBus/CommandBusContract';
 import QueryBusContract from '../QueryBus/QueryBusContract';
 import {TYPES} from "../ioc/types";
-import RegisterUserCommand from "../../application/RegisterUser/RegisterUserCommand";
-import RegisterUserHandler from "../../application/RegisterUser/RegisterUserHandler";
+import RegisterUserCommand from "../../application/commands/RegisterUser/RegisterUserCommand";
+import RegisterUserHandler from "../../application/commands/RegisterUser/RegisterUserHandler";
 import UserViewModel from '../presentation/UserViewModel';
 
 @injectable()

@@ -1,9 +1,9 @@
 import { inject, injectable } from 'inversify';
-import { TYPES } from '../../infrastructure/ioc/types';
+import { TYPES } from '../../../infrastructure/ioc/types';
 
 import RegisterUserCommand from './RegisterUserCommand';
-import User from '../../domain/User/User';
-import UserRepositoryContract from '../../domain/User/repositories/UserRepositoryContract';
+import User from '../../../domain/User/User';
+import UserRepositoryContract from '../../../domain/User/repositories/UserRepositoryContract';
 
 @injectable()
 export default class RegisterUserHandler implements CommandHandlerContract {

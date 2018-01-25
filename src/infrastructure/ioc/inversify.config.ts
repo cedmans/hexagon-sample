@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { Container } from 'inversify';
 import { TYPES } from './types';
-import RegisterUserHandler from '../../application/RegisterUser/RegisterUserHandler';
+import RegisterUserHandler from '../../application/commands/RegisterUser/RegisterUserHandler';
 import SimpleCommandBus from '../CommandBus/SimpleCommandBus';
 import UserRepository from '../persistence/InMemoryUserRepository';
 import SimpleQueryBus from "../QueryBus/SimpleQueryBus";
