@@ -17,11 +17,11 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@types/node": "8.5.8",
-    "ts-node": "^4.1.0",
-    "typescript": "^2.6.2"
+    "ts-node": "^4.1.0"
   },
   "dependencies": {
     "dotenv": "^4.0.0",
-    "restify": "^6.3.4"
+    "restify": "^6.3.4",
+    "typescript": "^2.6.2"
   }
 }
