@@ -10,7 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "8.5.8",
     "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "restify": "^6.3.4"
   }
 }
