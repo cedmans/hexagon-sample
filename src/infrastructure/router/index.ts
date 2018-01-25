@@ -1,9 +1,9 @@
 import SimpleCommandBus from '../CommandBus/SimpleCommandBus';
-import ListUsersQuery from '../../application/ListUsers/ListUsersQuery';
-import ListUsersHandler from '../../application/ListUsers/ListUsersHandler';
 import RegisterUserCommand from '../../application/RegisterUser/RegisterUserCommand';
 import RegisterUserHandler from '../../application/RegisterUser/RegisterUserHandler';
-import SimpleQueryBus from "../QueryBus/SimpleQueryBus";
+
+import { container } from '../ioc/inversify.config';
+import UserController from "../Controllers/UserController";
 
 function applyRoutes(server) {
     server.get('/', (request, response, next) => {
@@ -26,11 +26,7 @@ function applyRoutes(server) {
     });
 
     server.get('/users', (request, response) => {
-        const queryBus = new SimpleQueryBus();
-        queryBus.register(ListUsersQuery, ListUsersHandler);
-
-        const users = queryBus.execute(new ListUsersQuery());
-        response.json(200, users);
+        container.get<UserController>(UserController).index(request, response);
     });
 }
 

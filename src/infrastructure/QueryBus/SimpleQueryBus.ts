@@ -1,5 +1,7 @@
 import { container } from '../ioc/inversify.config';
+import {injectable} from "inversify";
 
+@injectable()
 export default class SimpleQueryBus implements QueryBusContract {
     private _handlers = {};
 
