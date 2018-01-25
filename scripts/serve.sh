@@ -5,9 +5,11 @@ export $(egrep -v '^#' .env | xargs)
 
 case ${NODE_ENV} in
   production)
+    set -x
     node dist/infrastructure/server/index.js
     ;;
   *)
+    set -x
     ts-node src/infrastructure/server/index.ts
     ;;
 esac
