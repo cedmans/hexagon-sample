@@ -2,7 +2,7 @@
 
 ## Running
 
-Ensure that your application has a `.env` file. This should happen automatically with `yarn install` or `npm install`.
+Ensure that your application has a `.env` file. This should happen automatically with `yarn install` or `npm install`. If not, copy `.env.example` to `.env`.
 
 ```bash
 $ npm start
