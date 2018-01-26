@@ -1,5 +1,15 @@
 # Clean Architecture Sample
 
+## Setting up
+
+Install your Node dependencies
+
+```bash
+$ yarn install
+# == OR ==
+$ npm install
+```
+
 ## Running
 
 Ensure that your application has a `.env` file. This should happen automatically with `yarn install` or `npm install`. If not, copy `.env.example` to `.env`.
